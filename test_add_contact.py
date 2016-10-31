@@ -2,6 +2,8 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
 from contact import Contact
+from phones import Phones
+from emails import Emails
 
 def is_alert_present(wd):
     try:
@@ -55,40 +57,42 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("address").send_keys(contact.address)
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys(contact.homephone)
+        wd.find_element_by_name("home").send_keys(contact.phones.homephone)
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys(contact.mobilephone)
+        wd.find_element_by_name("mobile").send_keys(contact.phones.mobilephone)
         wd.find_element_by_name("work").click()
         wd.find_element_by_name("work").clear()
-        wd.find_element_by_name("work").send_keys(contact.workphone)
+        wd.find_element_by_name("work").send_keys(contact.phones.workphone)
         wd.find_element_by_name("fax").click()
         wd.find_element_by_name("fax").clear()
-        wd.find_element_by_name("fax").send_keys(contact.faxphone)
+        wd.find_element_by_name("fax").send_keys(contact.phones.faxphone)
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(contact.email1)
+        wd.find_element_by_name("email").send_keys(contact.emails.email1)
         wd.find_element_by_name("email2").click()
         wd.find_element_by_name("email2").clear()
-        wd.find_element_by_name("email2").send_keys(contact.email2)
+        wd.find_element_by_name("email2").send_keys(contact.emails.email2)
         wd.find_element_by_name("email3").click()
         wd.find_element_by_name("email3").clear()
-        wd.find_element_by_name("email3").send_keys(contact.email3)
+        wd.find_element_by_name("email3").send_keys(contact.emails.email3)
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
     def logout(self, wd):
         wd.find_element_by_link_text("Logout").click()
 
-    def test_test_add_contact(self):
+    def test_add_contact(self):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd)
         self.open_add_contact_page(wd)
+        allphones = Phones(homephone="8(017)2851111", mobilephone="+375297111111", workphone="8(017)2841111",
+                           faxphone="8(017)2841111")
+        allemails = Emails(email1 = "111@mail.ru", email2 = "222@gmail.com", email3="333@gmail.com")
         self.fill_new_contact_form(wd, Contact(firstname="Ivan", middlename="Ivanovich", lastname="Ivanov",
                                                nickname="Iva", title="zaq", company="comp1", address="st. Qwerty 1",
-                                               homephone="8(017)2851111", mobilephone="+375297111111", workphone="8(017)2841111",
-                                               faxphone="8(017)2841111",email1 = "111@mail.ru", email2 = "222@gmail.com", email3="333@gmail.com"))
+                                               phones = allphones, emails = allemails))
         self.logout(wd)
 
     def tearDown(self):
