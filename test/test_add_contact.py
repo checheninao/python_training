@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import pytest
-from contact import Contact
-from phones import Phones
-from emails import Emails
-from application import Application
+
+from fixture.application import Application
+from model.contact import Contact
+from model.emails import Emails
+from model.phones import Phones
 
 
 @pytest.fixture
