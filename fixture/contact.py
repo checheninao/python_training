@@ -8,9 +8,8 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
 
-    def create(self, contact):
+    def fill_form(self, contact):
         wd = self.app.wd
-        self.open_add_contact_page()
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -54,14 +53,52 @@ class ContactHelper:
         wd.find_element_by_name("email3").click()
         wd.find_element_by_name("email3").clear()
         wd.find_element_by_name("email3").send_keys(contact.emails.email3)
+
+    def create(self, contact):
+        wd = self.app.wd
+        self.open_add_contact_page()
+        self.fill_form(contact)
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
-    def delete_first_contact(self):
+    def select_first_contact(self):
         wd = self.app.wd
-        # select first contact
         wd.find_element_by_name("selected[]").click()
+
+    def edit_first_contact(self, contact):
+        wd = self.app.wd
+        self.select_first_contact()
+        # press edit
+        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        self.fill_form(contact)
+        # submit contact edition
+        wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
+
+    def edit_first_contact_from_details_page(self, contact):
+        wd = self.app.wd
+        self.select_first_contact()
+        # press details
+        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img").click()
+        # press modify on details page
+        wd.find_element_by_name("modifiy").click()
+        self.fill_form(contact)
+        # submit contact edition
+        wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
+
+    def delete_selected_contacts(self):
+        wd = self.app.wd
         # press Delete button
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         # submit contact deletion
         wd.switch_to_alert().accept()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        self.select_first_contact()
+        self.delete_selected_contacts()
+
+    def delete_all_contacts(self):
+        wd = self.app.wd
+        # select all contacts
+        wd.find_element_by_id("MassCB").click()
+        self.delete_selected_contacts()
