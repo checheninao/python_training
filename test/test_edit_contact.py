@@ -4,7 +4,7 @@ from model.emails import Emails
 from model.phones import Phones
 
 
-def test_add_contact(app):
+def test_edit_first_contact(app):
     app.session.login(username="admin", password="secret")
     allphones = Phones(homephone="8(017)2372222", mobilephone="+3754462222", workphone="8(017)2682222",
                     faxphone="8(017)2682222")
