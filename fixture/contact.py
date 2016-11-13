@@ -8,6 +8,10 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
 
+    def open_contacts_page(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
+
     def change_field_value(self, field_name, value):
         wd = self.app.wd
         if value is not None:
@@ -45,6 +49,7 @@ class ContactHelper:
 
     def edit_first_contact(self, contact):
         wd = self.app.wd
+        self.open_contacts_page()
         self.select_first_contact()
         # press edit
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
@@ -54,6 +59,7 @@ class ContactHelper:
 
     def edit_first_contact_from_details_page(self, contact):
         wd = self.app.wd
+        self.open_contacts_page()
         self.select_first_contact()
         # press details
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img").click()
@@ -72,11 +78,22 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
+        self.open_contacts_page()
         self.select_first_contact()
         self.delete_selected_contacts()
 
     def delete_all_contacts(self):
         wd = self.app.wd
+        self.open_contacts_page()
         # select all contacts
         wd.find_element_by_id("MassCB").click()
         self.delete_selected_contacts()
+
+    def count(self):
+        wd = self.app.wd
+        self.open_contacts_page()
+        return len(wd.find_elements_by_name("selected[]"))
+
+    def return_to_home_page(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home page").click()
