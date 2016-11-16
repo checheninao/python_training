@@ -10,7 +10,9 @@ class ContactHelper:
 
     def open_contacts_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home").click()
+        if not ((wd.current_url.endswith("/addressbook/") or wd.current_url.endswith("/addressbook/index.php"))
+                and len(wd.find_elements_by_link_text("Last name")) > 0):
+            wd.find_element_by_link_text("home").click()
 
     def change_field_value(self, field_name, value):
         wd = self.app.wd
@@ -42,6 +44,7 @@ class ContactHelper:
         self.fill_contact_form(contact)
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        self.return_to_home_page()
 
     def select_first_contact(self):
         wd = self.app.wd
@@ -56,6 +59,7 @@ class ContactHelper:
         self.fill_contact_form(contact)
         # submit contact edition
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
+        self.return_to_home_page()
 
     def edit_first_contact_from_details_page(self, contact):
         wd = self.app.wd
@@ -68,6 +72,7 @@ class ContactHelper:
         self.fill_contact_form(contact)
         # submit contact edition
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
+        self.return_to_home_page()
 
     def delete_selected_contacts(self):
         wd = self.app.wd
@@ -96,4 +101,5 @@ class ContactHelper:
 
     def return_to_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home page").click()
+        if wd.current_url.endswith("/edit.php") and len(wd.find_elements_by_link_text("home page")) > 0:
+            wd.find_element_by_link_text("home page").click()
