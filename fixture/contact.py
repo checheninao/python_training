@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from model.contact import Contact
+
 class ContactHelper:
 
     def __init__(self, app):
@@ -103,3 +105,14 @@ class ContactHelper:
         wd = self.app.wd
         if wd.current_url.endswith("/edit.php") and len(wd.find_elements_by_link_text("home page")) > 0:
             wd.find_element_by_link_text("home page").click()
+
+    def get_contact_list(self):
+        wd = self.app.wd
+        self.open_contacts_page()
+        contacts = []
+        rows = wd.find_elements_by_name("entry")
+        for row in rows:
+            row_id = row.find_element_by_name("selected[]").get_attribute("id")
+            cells = row.find_elements_by_tag_name("td")
+            contacts.append(Contact(lastname=cells[1].text, firstname=cells[2].text, id=row_id))
+        return contacts
