@@ -50,15 +50,22 @@ class ContactHelper:
         self.contact_cache = None
 
     def select_first_contact(self):
+        self.select_contact_by_index(0)
+
+    def select_contact_by_index(self, index):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
 
     def edit_first_contact(self, contact):
+        self.edit_contact_by_index(0, contact)
+
+    def edit_contact_by_index(self, index, contact):
         wd = self.app.wd
         self.open_contacts_page()
-        self.select_first_contact()
+        self.select_contact_by_index(index)
         # press edit
-        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        wd.find_elements_by_name("entry")[index].find_elements_by_tag_name("td")[7].click()
+        #wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         self.fill_contact_form(contact)
         # submit contact edition
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
@@ -66,11 +73,15 @@ class ContactHelper:
         self.contact_cache = None
 
     def edit_first_contact_from_details_page(self, contact):
+        self.edit_contact_by_index_from_details_page(0, contact)
+
+    def edit_contact_by_index_from_details_page(self, index, contact):
         wd = self.app.wd
         self.open_contacts_page()
-        self.select_first_contact()
+        self.select_contact_by_index(index)
         # press details
-        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img").click()
+        wd.find_elements_by_name("entry")[index].find_elements_by_tag_name("td")[6].click()
+        #wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[7]/a/img").click()
         # press modify on details page
         wd.find_element_by_name("modifiy").click()
         self.fill_contact_form(contact)
@@ -87,9 +98,12 @@ class ContactHelper:
         wd.switch_to_alert().accept()
 
     def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.open_contacts_page()
-        self.select_first_contact()
+        self.select_contact_by_index(index)
         self.delete_selected_contacts()
         self.contact_cache = None
 
