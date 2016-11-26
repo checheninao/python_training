@@ -11,7 +11,7 @@ def test_edit_contact_from_details_page(app):
     old_contacts = app.contact.get_contact_list()
     index = randrange(len(old_contacts))
     contact_phones = Phones(homephone="8(017)237333", mobilephone="+3754463333", workphone="8(017)2683333",
-                    faxphone="8(017)268333")
+                            secondaryphone="2888765", faxphone="8(017)268333")
     contact_emails = Emails(email1 = "zaq@mail.ru", email2 = "xsw@gmail.com", email3="cde@gmail.com")
     contact = Contact(firstname="Alexei", middlename="Pavlovich", lastname="Pavlov",
                                nickname="APP", title="wer", company="comp3", address="st. Pterty 3",
