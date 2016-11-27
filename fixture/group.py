@@ -87,7 +87,8 @@ class GroupHelper:
             self.open_groups_page()
             self.group_cache = []
             for element in wd.find_elements_by_css_selector("span.group"):
-                text = element.text
+                #text = element.text  #отсекает пробелы в конце названия группы
+                text2 = element.find_element_by_name("selected[]").get_attribute("title")[8:-1] # title="Select (text2)"
                 id = element.find_element_by_name("selected[]").get_attribute("value")
-                self.group_cache.append(Group(name=text, id=id))
+                self.group_cache.append(Group(name=text2, id=id))
         return list(self.group_cache)
