@@ -1,170 +1,144 @@
 [
   {
-    "nickname": "Iva",
-    "emails": {
-      "email1": "111@mail.ru",
-      "email3": "333@gmail.com",
-      "email2": "222@gmail.com"
-    },
-    "all_phones_from_home_page": null,
     "lastname": "Ivanov",
+    "nickname": "Iva",
+    "firstname": "Ivan",
+    "py/object": "model.contact.Contact",
     "address": "st. Qwerty 1",
-    "id": null,
-    "phones": {
-      "homephone": "8(017)2851111",
-      "faxphone": "8(017)2841111",
-      "mobilephone": "+375297111111",
-      "secondaryphone": "285-33-77",
-      "workphone": "8(017)2841111"
-    },
+    "title": "zaq",
+    "all_phones_from_home_page": null,
+    "company": "comp1",
     "all_emails_from_home_page": null,
     "middlename": "Ivanovich",
-    "company": "comp1",
-    "firstname": "Ivan",
-    "title": "zaq"
-  },
-  {
-    "nickname": null,
     "emails": {
-      "email1": "em1S@q8mgM VzT.com",
-      "email3": "em3@mail.ru",
-      "email2": "em271qZ @u b.ru"
+      "email1": "111@mail.ru",
+      "email2": "222@gmail.com",
+      "py/object": "model.emails.Emails",
+      "email3": "333@gmail.com"
     },
-    "all_phones_from_home_page": null,
-    "lastname": "lastwm",
-    "address": "\n,'E~ t\nvp5=$f S\n? #Ji",
     "id": null,
     "phones": {
-      "homephone": null,
-      "faxphone": null,
-      "mobilephone": null,
-      "secondaryphone": null,
-      "workphone": null
-    },
-    "all_emails_from_home_page": null,
-    "middlename": "middleW",
-    "company": null,
-    "firstname": "first",
-    "title": null
+      "secondaryphone": "285-33-77",
+      "faxphone": "8(017)2841111",
+      "homephone": "8(017)2851111",
+      "mobilephone": "+375297111111",
+      "workphone": "8(017)2841111",
+      "py/object": "model.phones.Phones"
+    }
   },
   {
-    "nickname": null,
-    "emails": {
-      "email1": "em1 @mail.com",
-      "email3": "em3ejP@zIT.com",
-      "email2": "em2QQ2J@mail.by"
-    },
-    "all_phones_from_home_page": null,
     "lastname": "last",
-    "address": "5\n\n3O\\z=\n_xI/i",
+    "nickname": null,
+    "firstname": "firstLyRnXGwG",
+    "py/object": "model.contact.Contact",
+    "address": "d \nR\nm)r\n<B8 2 ",
+    "title": null,
+    "all_phones_from_home_page": null,
+    "company": null,
+    "all_emails_from_home_page": null,
+    "middlename": "middlek2mPF2zvmwnRpfpt",
+    "emails": {
+      "email1": "em1S K@mail.ru",
+      "email2": "em2QYxkn@X.by",
+      "py/object": "model.emails.Emails",
+      "email3": "em3@.by"
+    },
     "id": null,
     "phones": {
-      "homephone": null,
-      "faxphone": null,
-      "mobilephone": null,
       "secondaryphone": null,
-      "workphone": null
-    },
-    "all_emails_from_home_page": null,
-    "middlename": "middleTtNTn3mXe4dYkKJ",
-    "company": null,
-    "firstname": "firstHpTC",
-    "title": null
+      "faxphone": null,
+      "homephone": null,
+      "mobilephone": null,
+      "workphone": null,
+      "py/object": "model.phones.Phones"
+    }
   },
   {
+    "lastname": "lastZWRkSzghl",
     "nickname": null,
-    "emails": {
-      "email1": "em1nM@pEJ.by",
-      "email3": "em3@gmail.com",
-      "email2": "em2Kou @ 1.ru"
-    },
+    "firstname": "firstyD",
+    "py/object": "model.contact.Contact",
+    "address": " ix;\n ~nwA\n-l\np",
+    "title": null,
     "all_phones_from_home_page": null,
-    "lastname": "lastiI",
-    "address": "sL\nF$'<\n \n",
+    "company": null,
+    "all_emails_from_home_page": null,
+    "middlename": "middle5RURj",
+    "emails": {
+      "email1": "em1Rs@mail.com",
+      "email2": "em243@gmail.ru",
+      "py/object": "model.emails.Emails",
+      "email3": "em3E15e@com.ru"
+    },
     "id": null,
     "phones": {
-      "homephone": null,
-      "faxphone": null,
-      "mobilephone": null,
-      "secondaryphone": null,
-      "workphone": null
-    },
-    "all_emails_from_home_page": null,
-    "middlename": "middleXrPoPHirLcHS",
-    "company": null,
-    "firstname": "firstcKvQQyEtc",
-    "title": null
+      "py/id": 6
+    }
   },
   {
+    "lastname": "last1",
     "nickname": null,
-    "emails": {
-      "email1": "em1@mail.by",
-      "email3": "em3@mail.ru",
-      "email2": "em2R@mail.ru"
-    },
+    "firstname": "firstiD",
+    "py/object": "model.contact.Contact",
+    "address": " C$i0~V h\nPNjb/\nA(_LKr \nU34>~1Qm",
+    "title": null,
     "all_phones_from_home_page": null,
-    "lastname": "lastpesnTGAwG5QeNuF",
-    "address": ";~J]'\"9Jt\ndDK/$tk%)\nFq[&\nbrO",
+    "company": null,
+    "all_emails_from_home_page": null,
+    "middlename": "middleqVAqJ3g",
+    "emails": {
+      "email1": "em1@1sn.com",
+      "email2": "em2@gmail.ru",
+      "py/object": "model.emails.Emails",
+      "email3": "em3DJ@mail.com"
+    },
     "id": null,
     "phones": {
-      "homephone": null,
-      "faxphone": null,
-      "mobilephone": null,
-      "secondaryphone": null,
-      "workphone": null
-    },
-    "all_emails_from_home_page": null,
-    "middlename": "middleQZx4DfJYZrw9a3",
-    "company": null,
-    "firstname": "firstLb6wUB",
-    "title": null
+      "py/id": 6
+    }
   },
   {
+    "lastname": "lastt",
     "nickname": null,
-    "emails": {
-      "email1": "em1@gmail.com",
-      "email3": "em3zF@com.com",
-      "email2": "em22ix@gmail.com"
-    },
+    "firstname": "first9CuAiR",
+    "py/object": "model.contact.Contact",
+    "address": ";jE<s\n{2 XOg\n\n%/{thk",
+    "title": null,
     "all_phones_from_home_page": null,
-    "lastname": "lastMnU8uurQEjnomxYr",
-    "address": "`S2YL^\n!vDx\nZ;\n%0}",
+    "company": null,
+    "all_emails_from_home_page": null,
+    "middlename": "middleLMVr1BKhg",
+    "emails": {
+      "email1": "em1@mail.com",
+      "email2": "em2bEq9f@gmail.com",
+      "py/object": "model.emails.Emails",
+      "email3": "em3j0@ 6gQcs3.com"
+    },
     "id": null,
     "phones": {
-      "homephone": null,
-      "faxphone": null,
-      "mobilephone": null,
-      "secondaryphone": null,
-      "workphone": null
-    },
-    "all_emails_from_home_page": null,
-    "middlename": "middleQE2LSjCGylGR0Q",
-    "company": null,
-    "firstname": "firstjgW3",
-    "title": null
+      "py/id": 6
+    }
   },
   {
+    "lastname": "lastdN523K69m0OqVIjH",
     "nickname": null,
-    "emails": {
-      "email1": "em1@mail.by",
-      "email3": "em3@gmail.com",
-      "email2": "em2 8Pu X@qs .com"
-    },
+    "firstname": "first3Uprw",
+    "py/object": "model.contact.Contact",
+    "address": "X>W wQg [\n\"\n\nDI@q",
+    "title": null,
     "all_phones_from_home_page": null,
-    "lastname": "lastPwDB",
-    "address": "P\n~\na'+ml%3\nC",
+    "company": null,
+    "all_emails_from_home_page": null,
+    "middlename": "middleNg6zV7tbuV",
+    "emails": {
+      "email1": "em1yVg@gmail.ru",
+      "email2": "em2n2@mail.com",
+      "py/object": "model.emails.Emails",
+      "email3": "em3X@mail.ru"
+    },
     "id": null,
     "phones": {
-      "homephone": null,
-      "faxphone": null,
-      "mobilephone": null,
-      "secondaryphone": null,
-      "workphone": null
-    },
-    "all_emails_from_home_page": null,
-    "middlename": "middle",
-    "company": null,
-    "firstname": "first",
-    "title": null
+      "py/id": 6
+    }
   }
 ]
