@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from model.contact import Contact
-from random import randrange
 import random
 
 def test_delete_some_contact(app, db, check_ui):

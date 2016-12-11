@@ -2,7 +2,6 @@
 from model.contact import Contact
 from model.emails import Emails
 from model.phones import Phones
-from random import randrange
 import random
 
 def test_edit_contact_from_details_page(app, db, check_ui):
