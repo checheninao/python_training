@@ -4,14 +4,15 @@ from model.contact import Contact
 from model.phones import Phones
 from model.emails import Emails
 
+
 class DbFixture:
 
     def __init__(self, host, name, user, password):
         self.host = host
-        self.name=name
-        self.user=user
-        self.password=password
-        self.connection = mysql.connector.connect(host=self.host, database=self.name, user=self.user, password=self.password)
+        self.name = name
+        self.user = user
+        self.password = password
+        self.connection = mysql.connector.connect(host=host, database=name, user=user, password=password)
         self.connection.autocommit = True
 
     def get_group_list(self):

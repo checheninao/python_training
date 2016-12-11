@@ -60,6 +60,10 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
 
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
+
     def edit_first_contact(self, contact):
         self.edit_contact_by_index(0, contact)
 
@@ -69,6 +73,18 @@ class ContactHelper:
         self.select_contact_by_index(index)
         # press edit
         wd.find_elements_by_name("entry")[index].find_elements_by_tag_name("td")[7].click()
+        self.fill_contact_form(contact)
+        # submit contact edition
+        wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
+        self.return_to_home_page()
+        self.contact_cache = None
+
+    def edit_contact_by_id(self, contact):
+        wd = self.app.wd
+        self.open_contacts_page()
+        self.select_contact_by_id(contact.id)
+        # press edit
+        wd.find_element_by_css_selector("a[href='edit.php?id=%s']" % contact.id).click()
         self.fill_contact_form(contact)
         # submit contact edition
         wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
@@ -92,12 +108,28 @@ class ContactHelper:
         self.return_to_home_page()
         self.contact_cache = None
 
+    def edit_contact_by_id_from_details_page(self, contact):
+        wd = self.app.wd
+        self.open_contacts_page()
+        self.select_contact_by_id(contact.id)
+        # press details
+        wd.find_element_by_css_selector("a[href='view.php?id=%s']" % contact.id).click()
+        # press modify on details page
+        wd.find_element_by_name("modifiy").click()
+        self.fill_contact_form(contact)
+        # submit contact edition
+        wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
+        self.return_to_home_page()
+        self.contact_cache = None
+
     def delete_selected_contacts(self):
         wd = self.app.wd
         # press Delete button
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         # submit contact deletion
         wd.switch_to_alert().accept()
+        self.return_to_home_page()
+
 
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
@@ -106,6 +138,13 @@ class ContactHelper:
         wd = self.app.wd
         self.open_contacts_page()
         self.select_contact_by_index(index)
+        self.delete_selected_contacts()
+        self.contact_cache = None
+
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        self.open_contacts_page()
+        self.select_contact_by_id(id)
         self.delete_selected_contacts()
         self.contact_cache = None
 
