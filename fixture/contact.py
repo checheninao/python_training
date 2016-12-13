@@ -233,4 +233,10 @@ class ContactHelper:
         return Contact(phones=Phones(homephone=homephone, workphone=workphone,
                               mobilephone=mobilephone, secondaryphone=secondaryphone,faxphone=faxphone))
 
-
+    def add_contact_to_group(self, contact_id, group_id):
+        wd = self.app.wd
+        self.open_contacts_page()
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_xpath("//select[@name='to_group']/option[@value='%s']" % group_id).click()
+        # press add to
+        wd.find_element_by_name("add").click()
