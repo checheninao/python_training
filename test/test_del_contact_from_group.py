@@ -3,7 +3,7 @@ from model.contact import Contact
 import random
 
 
-def test_add_contact_to_group(app, dbORM):
+def test_del_contact_from_group(app, dbORM):
     if len(dbORM.get_group_list()) == 0:
         app.group.create(Group(name="test2"))
     if len(dbORM.get_contact_list()) == 0:
