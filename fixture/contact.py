@@ -233,10 +233,27 @@ class ContactHelper:
         return Contact(phones=Phones(homephone=homephone, workphone=workphone,
                               mobilephone=mobilephone, secondaryphone=secondaryphone,faxphone=faxphone))
 
-    def add_contact_to_group(self, contact_id, group_id):
+    def show_contacts_in_group_by_id(self, group_id):
         wd = self.app.wd
         self.open_contacts_page()
-        self.select_contact_by_id(contact_id)
-        wd.find_element_by_xpath("//select[@name='to_group']/option[@value='%s']" % group_id).click()
+        wd.find_element_by_xpath("//select[@name='group']/option[@value='%s']" % group_id).click()
+
+    def add_contact_to_group(self, contact, group):
+        wd = self.app.wd
+        self.open_contacts_page()
+        wd.find_element_by_xpath("//select[@name='group']/option[@value='']").click()
+        self.select_contact_by_id(contact.id)
+        wd.find_element_by_xpath("//select[@name='to_group']/option[@value='%s']" % group.id).click()
         # press add to
         wd.find_element_by_name("add").click()
+        wd.find_element_by_link_text("group page \"%s\"" % group.name).click()
+
+    def delete_contact_from_group(self, contact, group):
+        wd = self.app.wd
+        self.show_contacts_in_group_by_id(group.id)
+        self.select_contact_by_id(contact.id)
+        wd.find_element_by_xpath("//select[@name='to_group']/option[@value='%s']" % group.id).click()
+        # press remove
+        wd.find_element_by_name("remove").click()
+        wd.find_element_by_link_text("group page \"%s\"" % group.name).click()
+
