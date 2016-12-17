@@ -77,7 +77,6 @@ def pytest_generate_tests(metafunc):
             metafunc.parametrize(fixture, testdata, ids=[str(x) for x in testdata])
 
 
-
 def load_from_module(module):
     return importlib.import_module("data.%s" % module).testdata
 

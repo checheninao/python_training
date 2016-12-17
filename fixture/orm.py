@@ -17,7 +17,7 @@ class ORMFixture:
         name = Optional(str, column='group_name')
         header = Optional(str, column='group_header')
         footer = Optional(str, column='group_footer')
-        contacts = Set(lambda: ORMFixture.ORMContact, table="address_in_groups", column="id", reverse="groups", lazy=True)
+        contacts = Set(lambda: ORMFixture.ORMContact, table="address_in_groups", column="id", reverse="groups",lazy=True)
 
     class ORMContact(db.Entity):
         _table_ = 'addressbook'
@@ -41,7 +41,6 @@ class ORMFixture:
         conv = encoders
         conv.update(decoders)
         conv[datetime] = convert_mysql_timestamp
-        self.db.bind('mysql', host=host, database=name, user=user, password=password, conv=conv)
         self.db.generate_mapping()
         sql_debug(True)
 
@@ -54,6 +53,7 @@ class ORMFixture:
     def get_group_list(self):
         return self.convert_groups_to_model(select(g for g in ORMFixture.ORMGroup))
 
+    @db_session
     def convert_contacts_to_model(self, contacts):
         def convert(contact):
             return Contact(id=str(contact.id), firstname=contact.firstname, lastname=contact.lastname, address=contact.address,
@@ -67,7 +67,8 @@ class ORMFixture:
     @db_session
     def get_contacts_in_group(self, group):
         orm_group = list(select(g for g in ORMFixture.ORMGroup if g.id == group.id))[0]
-        return self.convert_contacts_to_model(orm_group.contacts)
+        return self.convert_contacts_to_model(
+            select(c for c in ORMFixture.ORMContact if c.deprecated is None and orm_group in c.groups))
 
     @db_session
     def get_contacts_not_in_group(self, group):
@@ -75,7 +76,10 @@ class ORMFixture:
         return self.convert_contacts_to_model(
             select(c for c in ORMFixture.ORMContact if c.deprecated is None and orm_group not in c.groups))
 
-
-    @db_session
     def get_group_list_with_contacts(self):
-        return self.convert_groups_to_model(select(g for g in ORMFixture.ORMGroup if len(g.contacts) != 0))
+        orm_groups = self.get_group_list()
+        return [g for g in orm_groups if len(self.get_contacts_in_group(g)) != 0]
+
+    def get_group_list_without_all_contacts(self):
+        orm_groups = self.get_group_list()
+        return [g for g in orm_groups if len(self.get_contacts_not_in_group(g)) != 0]

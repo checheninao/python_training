@@ -14,7 +14,6 @@ def test_del_contact_from_group(app, dbORM):
         contacts = dbORM.get_contact_list()
         contact = random.choice(contacts)
         app.contact.add_contact_to_group(contact, group)
-        pass
     group = random.choice(dbORM.get_group_list_with_contacts())
     old_contacts_in_group = dbORM.get_contacts_in_group(group)
     contact = random.choice(old_contacts_in_group)
