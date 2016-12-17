@@ -17,7 +17,7 @@ class ORMFixture:
         name = Optional(str, column='group_name')
         header = Optional(str, column='group_header')
         footer = Optional(str, column='group_footer')
-        contacts = Set(lambda: ORMFixture.ORMContact, table="address_in_groups", column="id", reverse="groups",lazy=True)
+        contacts = Set(lambda: ORMFixture.ORMContact, table="address_in_groups", column="id", reverse="groups", lazy=True)
 
     class ORMContact(db.Entity):
         _table_ = 'addressbook'
@@ -41,6 +41,7 @@ class ORMFixture:
         conv = encoders
         conv.update(decoders)
         conv[datetime] = convert_mysql_timestamp
+        self.db.bind('mysql', host=host, database=name, user=user, password=password, autocommit=True, conv=conv)
         self.db.generate_mapping()
         sql_debug(True)
 
