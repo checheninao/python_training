@@ -1,0 +1,104 @@
+{
+  "uid" : "80f306c0dbee3bb9",
+  "name" : "test_delete_some_contact",
+  "title" : "Test delete some contact",
+  "time" : {
+    "start" : 1483891492573,
+    "stop" : 1483891494166,
+    "duration" : 1593
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 4
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "d974fd7faec3bf3c",
+    "name" : "test.test_del_contact",
+    "title" : "Test del contact"
+  },
+  "steps" : [ {
+    "name" : "Given a non-empty contact list",
+    "title" : "Given a non-empty contact list",
+    "time" : {
+      "start" : 1483891492645,
+      "stop" : 1483891493627,
+      "duration" : 982
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Given a random contact from the list",
+    "title" : "Given a random contact from the list",
+    "time" : {
+      "start" : 1483891493627,
+      "stop" : 1483891493627,
+      "duration" : 0
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I delete the contact 271:;contact1 from the list",
+    "title" : "When I delete the contact 271:;contact1 from the list",
+    "time" : {
+      "start" : 1483891493627,
+      "stop" : 1483891494164,
+      "duration" : 537
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new contact list is equal to the old list without the deleted contact",
+    "title" : "Then the new contact list is equal to the old list without the deleted contact",
+    "time" : {
+      "start" : 1483891494164,
+      "stop" : 1483891494165,
+      "duration" : 1
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "thread",
+    "value" : "1240-MainThread"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "host",
+    "value" : "Olya-PC"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_del_contact"
+  } ],
+  "parameters" : [ ]
+}

@@ -1,0 +1,89 @@
+{
+  "uid" : "4b972a56aee38f8c",
+  "name" : "test_add_group[None:name;headere),c 4;footerz6%qVPNZ[d]",
+  "title" : "Test add group [None:name;headere),c 4;footerz6%qVPNZ[d]",
+  "time" : {
+    "start" : 1483891486608,
+    "stop" : 1483891488160,
+    "duration" : 1552
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "suite" : {
+    "uid" : "8c9a443044f3f1a9",
+    "name" : "test.test_add_group",
+    "title" : "Test add group"
+  },
+  "steps" : [ {
+    "name" : "Given a group list",
+    "title" : "Given a group list",
+    "time" : {
+      "start" : 1483891486685,
+      "stop" : 1483891486688,
+      "duration" : 3
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I add a group None:name;headere),c 4;footerz6%qVPNZ[d to the list",
+    "title" : "When I add a group None:name;headere),c 4;footerz6%qVPNZ[d to the list",
+    "time" : {
+      "start" : 1483891486688,
+      "stop" : 1483891488156,
+      "duration" : 1468
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new group list is equal to the old list with the added group",
+    "title" : "Then the new group list is equal to the old list with the added group",
+    "time" : {
+      "start" : 1483891488156,
+      "stop" : 1483891488159,
+      "duration" : 3
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "testIds" : [ ],
+  "labels" : [ {
+    "name" : "thread",
+    "value" : "1240-MainThread"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "suite-name",
+    "value" : "test.test_add_group"
+  }, {
+    "name" : "host",
+    "value" : "Olya-PC"
+  } ],
+  "parameters" : [ ]
+}
