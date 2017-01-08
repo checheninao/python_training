@@ -7,3 +7,4 @@ pymysql
 mysql-connector-python-rf
 lxml-3.7.1-cp34-cp34m-win_amd64.whl
 pytest-allure-adaptor
+robotframework-python3
